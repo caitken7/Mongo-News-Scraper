@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://www.reddit.com/" target="_blank">Visit Reddit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/caitken7" target="_blank">Visit my Github</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Mongo WebScraping</h3>
+    </div>
+
+    <div class="jumbotron">
+        <h1 class="jumboheader">Reddit News in Photos Scraper</h1>
+        <p class="lead">Scrape Reddit for news</p>
+        <p><a class="btn btn-lg btn-success" href="/scrape" role="button">Scrape the latest!</a></p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {{!--News Cards--}} {{!--Iterate through the results and populate the handlebars injection points with the scraped titles,
+            links, and article snippets.--}} 
+            {{#each result}}
+            <div class="card news-section text-center" style="background: url('{{this.link}}') no-repeat center center fixed; background-size: cover; height: 600px;">
+                <a href="{{this.link}}">
+                    <h4 class="card-header">{{this.title}}</h4>
+                </a>
+                <div class="card-block">
+                    {{!--
+                    <h4 class="card-title"></h4>
+                    </a>--}}
+                    <a href="{{this.link}}">
+                        {{!-- <p class="card-text">{{this.articleSnippet}}</p> --}}
+                    </a>
+                    <br>
+                    
+                </div>
+                <a href="/articles/{{this._id}}" class="btn btn-primary" id="commentBtn">Comment</a>
+            </div>
+            <br>
+            <br> 
+            {{/each}}
+        </div>
+    </div>
+    
+
+
+
+    <footer class="footer">
+        <p>&copy; Casey Aitken 2017</p>
+    </footer>
+
+</div>
+<!-- /container -->
