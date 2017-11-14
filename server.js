@@ -25,7 +25,11 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 // Mongoose (orm) connects to our mongo db and allows us to have access to the MongoDB commands for easy CRUD
-mongoose.connect("mongodb://localhost/newsScraper");
+mongoose.connect(
+	process.env.MONGOLAB_URI ||
+		process.env.MONGOHQ_URL ||
+		"mongodb://localhost/newsScraper"
+);
 var db = mongoose.connection;
 
 // if any errors than console errors
