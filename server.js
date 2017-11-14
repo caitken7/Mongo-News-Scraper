@@ -4,6 +4,7 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var http = require("http");
 
 // Using es6 js promise
 mongoose.Promise = Promise;
